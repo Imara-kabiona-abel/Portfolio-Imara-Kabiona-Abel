@@ -8,12 +8,23 @@
   <script src="js/lang.js" defer></script>
 </head>
 <body>
-  <h1>Bienvenue sur mon site</h1>
-  <p>Voici ma photo :</p>
-
-  <img src="assets/moi.jpeg" alt="Photo de moi">
-
-</body>
+  <header class="hero">
+    <div class="hero-inner">
+      <img src="assets/moi.jpeg" alt="Photo Imara Kabiona Abel" class="avatar">
+      <div class="hero-text">
+        <h1 data-fr="IMARA KABIONA Abel" data-en="IMARA KABIONA Abel">IMARA KABIONA Abel</h1>
+        <p class="lead" data-fr="Superviseur Logistique • Graphiste Designer • Développeur Web & Mobile" data-en="Logistics Supervisor • Graphic Designer • Web & Mobile Developer">Superviseur Logistique • Graphiste Designer • Développeur Web & Mobile</p>
+        <div class="controls">
+          <a class="btn" href="assets/cv_IMARA_KABIONA_Abel.pdf" download data-fr="Télécharger le CV" data-en="Download CV">Télécharger le CV</a>
+          <a class="btn ghost" href="#contact" data-fr="Me contacter" data-en="Contact me">Me contacter</a>
+          <div class="lang-switch">
+            <label><input type="radio" name="lang" value="fr" checked> FR</label>
+            <label><input type="radio" name="lang" value="en"> EN</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <main class="container">
     <section id="about" class="card">
@@ -113,6 +124,5 @@
   <footer class="footer">
     <p>© 2025 IMARA KABIONA Abel • Portfolio professionnel • Conçu & développé par Abel</p>
   </footer>
-
 </body>
 </html>
