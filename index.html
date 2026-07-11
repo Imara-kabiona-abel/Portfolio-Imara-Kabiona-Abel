@@ -13,6 +13,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  .missions-block{max-width:760px;margin:2.4rem auto 0;}
+  .missions-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1rem;}
+  .missions-list li{display:flex;gap:1rem;align-items:baseline;color:var(--slate-300);font-size:.9rem;line-height:1.5;}
+  .missions-list .myear{font-family:var(--font-mono);color:var(--amber-500);font-weight:700;flex:none;width:3.4em;}
+  @media (max-width:640px){
+    .missions-list li{flex-direction:column;gap:.2rem;}
+    .missions-list .myear{width:auto;}
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
@@ -72,6 +82,32 @@
         </div>
       </div>
 
+      <div class="missions-block">
+        <p class="eyebrow" style="margin-bottom:1em" data-fr="Interventions / Missions effectuées" data-en="Interventions / Missions completed">Interventions / Missions effectuées</p>
+        <ul class="missions-list">
+          <li>
+            <span class="myear">2025</span>
+            <span data-fr="Responsable logistique — Intervention d'urgence multisectorielle, Minova, Sud-Kivu (RDC). Financement : ECHO, avec le consortium Première Urgence Internationale et Handicap International." data-en="Logistics Officer — Multi-sector emergency response, Minova, South Kivu (DRC). Funded by ECHO, with the Première Urgence Internationale and Handicap International consortium.">Responsable logistique — Intervention d'urgence multisectorielle, Minova, Sud-Kivu (RDC). Financement : ECHO, avec le consortium Première Urgence Internationale et Handicap International.</span>
+          </li>
+          <li>
+            <span class="myear">2025</span>
+            <span data-fr="Responsable logistique — Intervention santé et nutrition, Zone de Santé de Birambizo, Rutshuru (Nord-Kivu). Financement : CDCS, avec Première Urgence Internationale." data-en="Logistics Officer — Health and nutrition response, Birambizo Health Zone, Rutshuru (North Kivu). Funded by CDCS, with Première Urgence Internationale.">Responsable logistique — Intervention santé et nutrition, Zone de Santé de Birambizo, Rutshuru (Nord-Kivu). Financement : CDCS, avec Première Urgence Internationale.</span>
+          </li>
+          <li>
+            <span class="myear">2025</span>
+            <span data-fr="Responsable logistique — Intervention médicale d'urgence, Bunyakiri, Sud-Kivu (Projet RUSC), avec Médecins Sans Frontières Espagne." data-en="Logistics Officer — Emergency medical response, Bunyakiri, South Kivu (RUSC Project), with Médecins Sans Frontières Spain.">Responsable logistique — Intervention médicale d'urgence, Bunyakiri, Sud-Kivu (Projet RUSC), avec Médecins Sans Frontières Espagne.</span>
+          </li>
+          <li>
+            <span class="myear">2026</span>
+            <span data-fr="Responsable logistique — Campagne de vaccination, aires de santé de Kinyezire, Karango et Ruhunde, Sud-Kivu, avec Médecins Sans Frontières Espagne — Projet RUSC." data-en="Logistics Officer — Vaccination campaign, Kinyezire, Karango and Ruhunde health areas, South Kivu, with Médecins Sans Frontières Spain — RUSC Project.">Responsable logistique — Campagne de vaccination, aires de santé de Kinyezire, Karango et Ruhunde, Sud-Kivu, avec Médecins Sans Frontières Espagne — Projet RUSC.</span>
+          </li>
+          <li>
+            <span class="myear">2026</span>
+            <span data-fr="Responsable logistique — Explo Action, Kamanyola, Plaine de la Ruzizi (Sud-Kivu), avec Médecins Sans Frontières Espagne — Projet RUSC." data-en="Logistics Officer — Explo Action, Kamanyola, Ruzizi Plain (South Kivu), with Médecins Sans Frontières Spain — RUSC Project.">Responsable logistique — Explo Action, Kamanyola, Plaine de la Ruzizi (Sud-Kivu), avec Médecins Sans Frontières Espagne — Projet RUSC.</span>
+          </li>
+        </ul>
+      </div>
+
       <div class="stats">
         <div class="stat">
           <div class="num"><span data-count="6">0</span><sup>+</sup></div>
@@ -122,6 +158,20 @@
           <p class="muted" data-fr="LinkedIn, GitHub, WordPress et réseaux sociaux — tout en un endroit." data-en="LinkedIn, GitHub, WordPress and social networks — all in one place.">LinkedIn, GitHub, WordPress et réseaux sociaux — tout en un endroit.</p>
           <span class="go" data-fr="Me contacter →" data-en="Get in touch →">Me contacter →</span>
         </a>
+      </div>
+
+      <div class="card project-card" style="margin-top:2rem">
+        <img src="assets/moi.jpeg" alt="Photo de Imara Kabiona Abel" style="width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0">
+        <div>
+          <h3 style="margin-bottom:.3em" data-fr="Besoin d'un site comme celui-ci ?" data-en="Need a site like this one?">Besoin d'un site comme celui-ci ?</h3>
+          <p class="muted" data-fr="N'hésitez pas à me contacter. J'ai déjà conçu et déployé plusieurs sites : une boutique en ligne (lkb.dpdns.org), ce portfolio (portfolio.lkb.dpdns.org), ainsi que le site de l'ISMGL. Je suis également chargé du design et des médias chez Goma Hub / Goma Stake Pool (gomapool.com)." data-en="Feel free to reach out. I've already designed and deployed several sites: an online shop (lkb.dpdns.org), this portfolio (portfolio.lkb.dpdns.org), and the ISMGL website. I also handle design and media for Goma Hub / Goma Stake Pool (gomapool.com).">N'hésitez pas à me contacter. J'ai déjà conçu et déployé plusieurs sites : une boutique en ligne (lkb.dpdns.org), ce portfolio (portfolio.lkb.dpdns.org), ainsi que le site de l'ISMGL. Je suis également chargé du design et des médias chez Goma Hub / Goma Stake Pool (gomapool.com).</p>
+          <div class="tag-row">
+            <a class="tag" href="https://lkb.dpdns.org" target="_blank" rel="noopener">lkb.dpdns.org</a>
+            <a class="tag" href="https://portfolio.lkb.dpdns.org" target="_blank" rel="noopener">portfolio.lkb.dpdns.org</a>
+            <a class="tag" href="https://imara-kabiona-abel.github.io/ISMGL/" target="_blank" rel="noopener">ISMGL</a>
+            <a class="tag" href="https://gomapool.com" target="_blank" rel="noopener">gomapool.com</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -174,38 +224,84 @@
 
       <div class="route">
         <article class="stop current" data-current-en="true">
-          <span class="period">2025 — <span data-fr="Présent" data-en="Present">Présent</span></span>
+          <span class="period">11/08/2025 — <span data-fr="Aujourd'hui" data-en="Present">Aujourd'hui</span></span>
           <h3 data-fr="Superviseur Logistique" data-en="Logistics Supervisor">Superviseur Logistique</h3>
-          <span class="org">Médecins Sans Frontières Espagne — RDC</span>
-          <p data-fr="Suivi des activités de maintenance, gestion des stocks non médicaux, supervision d'équipe, maintenance de flotte et achats locaux selon procédures MSF." data-en="Oversight of maintenance activities, non-medical stock management, team supervision, fleet maintenance and local procurement per MSF procedures.">Suivi des activités de maintenance, gestion des stocks non médicaux, supervision d'équipe, maintenance de flotte et achats locaux selon procédures MSF.</p>
+          <span class="org">Médecins Sans Frontières Espagne — Projet RUSC, RD Congo</span>
+          <ul style="margin:.6em 0 0;padding-left:1.15em;color:var(--ink-700);max-width:64ch">
+            <li data-fr="Gestion technique & maintenance : pilotage de la maintenance préventive et curative des infrastructures, réseaux d'énergie et équipements électriques/mécaniques selon des normes de sécurité strictes." data-en="Technical management & maintenance: preventive and corrective maintenance of infrastructure, energy networks and electrical/mechanical equipment per strict safety standards.">Gestion technique & maintenance : pilotage de la maintenance préventive et curative des infrastructures, réseaux d'énergie et équipements électriques/mécaniques selon des normes de sécurité strictes.</li>
+            <li data-fr="WASH : évaluations en collaboration avec les équipes médicales, identification des besoins en eau et assainissement, recommandations au coordinateur de projet." data-en="WASH: assessments with medical teams, identifying water and sanitation needs, recommendations to the project coordinator.">WASH : évaluations en collaboration avec les équipes médicales, identification des besoins en eau et assainissement, recommandations au coordinateur de projet.</li>
+            <li data-fr="Gestion de flotte : supervision du parc automobile, planification des entretiens et formation technique des chauffeurs." data-en="Fleet management: overseeing the vehicle fleet, planning maintenance and technical training for drivers.">Gestion de flotte : supervision du parc automobile, planification des entretiens et formation technique des chauffeurs.</li>
+            <li data-fr="Supply chain & stocks : cycle complet d'approvisionnement (commandes, achats locaux, réception de fret) et contrôle rigoureux des stocks non médicaux." data-en="Supply chain & stocks: full procurement cycle (orders, local purchasing, freight receiving) and rigorous non-medical stock control.">Supply chain & stocks : cycle complet d'approvisionnement (commandes, achats locaux, réception de fret) et contrôle rigoureux des stocks non médicaux.</li>
+            <li data-fr="Management d'équipe : coordination logistique (recrutement, plannings, supervision qualité, réunions de suivi) d'une équipe de 27 chauffeurs/motos, 8 gardiens, 1 radio-opérateur, ainsi que journaliers et prestataires." data-en="Team management: logistics coordination (recruitment, scheduling, quality oversight, follow-up meetings) of a team of 27 drivers/motorbike riders, 8 guards, 1 radio operator, plus day-workers and contractors.">Management d'équipe : coordination logistique (recrutement, plannings, supervision qualité, réunions de suivi) d'une équipe de 27 chauffeurs/motos, 8 gardiens, 1 radio-opérateur, ainsi que journaliers et prestataires.</li>
+            <li data-fr="Sécurité & audit : évaluation des besoins de remise en état, suivi de chantiers mineurs, vérification de la conformité incendie et électrique." data-en="Security & audit: assessing refurbishment needs, monitoring minor works, verifying fire and electrical compliance.">Sécurité & audit : évaluation des besoins de remise en état, suivi de chantiers mineurs, vérification de la conformité incendie et électrique.</li>
+          </ul>
         </article>
 
         <article class="stop">
-          <span class="period">Fév 2025 — Août 2025</span>
+          <span class="period">28/02/2025 — 10/08/2025</span>
           <h3 data-fr="Assistant Logistique" data-en="Logistics Assistant">Assistant Logistique</h3>
           <span class="org">Première Urgence — Kitchanga</span>
-          <p data-fr="Suivi des achats locaux, gestion des équipements, approvisionnement et reporting." data-en="Follow-up of local purchases, equipment management, procurement and reporting.">Suivi des achats locaux, gestion des équipements, approvisionnement et reporting.</p>
+          <ul style="margin:.6em 0 0;padding-left:1.15em;color:var(--ink-700);max-width:64ch">
+            <li data-fr="Suivi des achats locaux (traitement des demandes d'achat à la réception)" data-en="Local purchase follow-up (processing purchase requests on receipt)">Suivi des achats locaux (traitement des demandes d'achat à la réception)</li>
+            <li data-fr="Gestion des équipements et moyens généraux" data-en="Equipment and general resources management">Gestion des équipements et moyens généraux</li>
+            <li data-fr="Approvisionnement & gestion des stocks programmes" data-en="Procurement & program stock management">Approvisionnement & gestion des stocks programmes</li>
+            <li data-fr="Suivi du parc véhicules et des télécommunications" data-en="Vehicle fleet and telecommunications follow-up">Suivi du parc véhicules et des télécommunications</li>
+            <li data-fr="Suivi du parc informatique" data-en="IT equipment follow-up">Suivi du parc informatique</li>
+            <li data-fr="Reporting et capitalisation logistique" data-en="Logistics reporting and knowledge capitalisation">Reporting et capitalisation logistique</li>
+          </ul>
         </article>
 
         <article class="stop">
-          <span class="period">2024</span>
+          <span class="period">01/11/2024 — 28/02/2025</span>
+          <h3 data-fr="Assistant Logistique" data-en="Logistics Assistant">Assistant Logistique</h3>
+          <span class="org">Première Urgence — Zone Est RDC</span>
+          <ul style="margin:.6em 0 0;padding-left:1.15em;color:var(--ink-700);max-width:64ch">
+            <li data-fr="Collecte et transmission d'informations sécuritaires" data-en="Collection and transmission of security information">Collecte et transmission d'informations sécuritaires</li>
+            <li data-fr="Appui logistique général (équipements, approvisionnement, stocks)" data-en="General logistics support (equipment, procurement, stocks)">Appui logistique général (équipements, approvisionnement, stocks)</li>
+            <li data-fr="Suivi de la flotte automobile et des communications" data-en="Vehicle fleet and communications follow-up">Suivi de la flotte automobile et des communications</li>
+            <li data-fr="Suivi informatique et reporting" data-en="IT follow-up and reporting">Suivi informatique et reporting</li>
+          </ul>
+        </article>
+
+        <article class="stop">
+          <span class="period">15/09 — 31/10/2024</span>
           <h3 data-fr="Assistant magasinier" data-en="Warehouse Assistant">Assistant magasinier</h3>
-          <span class="org">MSF Belgique — Goma</span>
-          <p data-fr="Réception, préparation, étiquetage des expéditions et suivi de la chaîne du froid." data-en="Receiving, preparation, labeling of shipments and cold chain monitoring.">Réception, préparation, étiquetage des expéditions et suivi de la chaîne du froid.</p>
+          <span class="org">Médecins Sans Frontières Belgique — Nord-Kivu, Goma</span>
+          <ul style="margin:.6em 0 0;padding-left:1.15em;color:var(--ink-700);max-width:64ch">
+            <li data-fr="Réception des marchandises, vérification et signalement" data-en="Goods receiving, verification and reporting of discrepancies">Réception des marchandises, vérification et signalement</li>
+            <li data-fr="Préparation, conditionnement et étiquetage des expéditions" data-en="Preparation, packing and labeling of shipments">Préparation, conditionnement et étiquetage des expéditions</li>
+            <li data-fr="Suivi de la chaîne du froid" data-en="Cold chain monitoring">Suivi de la chaîne du froid</li>
+          </ul>
         </article>
 
         <article class="stop">
-          <span class="period">2024</span>
-          <h3 data-fr="Stagiaire entrepôt" data-en="Warehouse trainee">Stagiaire entrepôt</h3>
-          <span class="org">MSF Belgique</span>
-          <p data-fr="Gestion d'un entrepôt de grande valeur (981 080 EUR), réception & expédition, prévision des commandes." data-en="Managed a warehouse valued at €981,080, receiving & dispatching, forecasting orders.">Gestion d'un entrepôt de grande valeur (981 080 EUR), réception & expédition, prévision des commandes.</p>
+          <span class="period">15/06 — 15/09/2024</span>
+          <h3 data-fr="Stagiaire Warehouse Manager" data-en="Warehouse Manager Trainee">Stagiaire Warehouse Manager</h3>
+          <span class="org">Médecins Sans Frontières Belgique — Nord-Kivu, Goma</span>
+          <ul style="margin:.6em 0 0;padding-left:1.15em;color:var(--ink-700);max-width:64ch">
+            <li data-fr="Gestion d'un entrepôt d'une valeur de 981 080 EUR" data-en="Management of a warehouse valued at €981,080">Gestion d'un entrepôt d'une valeur de 981 080 EUR</li>
+            <li data-fr="Réception & expédition (fret international/local)" data-en="Receiving & dispatching (international/local freight)">Réception & expédition (fret international/local)</li>
+            <li data-fr="Prévision des commandes, collaboration avec fournisseurs et transitaires" data-en="Order forecasting, collaboration with suppliers and freight forwarders">Prévision des commandes, collaboration avec fournisseurs et transitaires</li>
+            <li data-fr="Rédaction de rapports" data-en="Report writing">Rédaction de rapports</li>
+          </ul>
         </article>
 
         <article class="stop">
-          <span class="period">2019 — 2022</span>
-          <h3 data-fr="Jardinier & Gardien" data-en="Gardener & Guard">Jardinier & Gardien</h3>
-          <span class="org">MSF Suisse / MSF Belgique</span>
-          <p data-fr="Différents rôles au sein de MSF, démontrant polyvalence et engagement." data-en="Various roles within MSF, demonstrating versatility and commitment.">Différents rôles au sein de MSF, démontrant polyvalence et engagement.</p>
+          <span class="period">21/09/2023 — 31/10/2023</span>
+          <h3 data-fr="Stage académique — Logistique, secrétariat et comptabilité" data-en="Academic internship — Logistics, secretarial & accounting">Stage académique — Logistique, secrétariat et comptabilité</h3>
+          <span class="org">CPTS — Nord-Kivu, Goma</span>
+        </article>
+
+        <article class="stop">
+          <span class="period">01/09/2022</span>
+          <h3 data-fr="Gardien" data-en="Guard">Gardien</h3>
+          <span class="org">Médecins Sans Frontières Belgique — Goma, RD Congo</span>
+        </article>
+
+        <article class="stop">
+          <span class="period">01/05/2019 — 01/09/2022</span>
+          <h3 data-fr="Jardinier & Secrétaire archiviste" data-en="Gardener & Archivist Secretary">Jardinier & Secrétaire archiviste</h3>
+          <span class="org">Médecins Sans Frontières Suisse — Goma, RD Congo</span>
         </article>
       </div>
     </div>
