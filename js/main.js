@@ -1,101 +1,440 @@
-(function () {
-  "use strict";
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IMARA KABIONA Abel — Portfolio professionnel</title>
+<meta name="description" content="Superviseur Logistique, Graphiste Designer & Développeur Web/Mobile basé à Goma, RDC. Plus de 6 ans d'expérience en logistique humanitaire, approvisionnement et design.">
+<meta property="og:title" content="IMARA KABIONA Abel — Portfolio professionnel">
+<meta property="og:description" content="Superviseur Logistique • Graphiste Designer • Développeur Web & Mobile">
+<meta property="og:image" content="assets/moi.jpeg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A1F33'/%3E%3Ctext x='50' y='66' font-size='54' font-family='Georgia,serif' fill='%23C98A2B' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-fr="Aller au contenu" data-en="Skip to content">Aller au contenu</a>
 
-  var PAGES = ["home", "about", "experience", "education", "projects", "contact"];
-  var navLinks = document.querySelectorAll(".nav-links a[href^='#']");
-  var pages = document.querySelectorAll(".page");
-  var navToggle = document.getElementById("navToggle");
-  var navLinksEl = document.getElementById("navLinks");
+<!-- ============ NAV ============ -->
+<nav class="topnav">
+  <a href="#home" class="brand" aria-label="Accueil">
+    <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+    <strong>IMARA</strong>&nbsp;KABIONA
+  </a>
 
-  /* ---------------- Routing ---------------- */
-  function showPage(id) {
-    if (PAGES.indexOf(id) === -1) id = "home";
-    pages.forEach(function (p) {
-      p.classList.toggle("active", p.id === id);
-    });
-    navLinks.forEach(function (a) {
-      var target = a.getAttribute("href").replace("#", "");
-      a.classList.toggle("active", target === id);
-      if (target === id) {
-        a.setAttribute("aria-current", "page");
-      } else {
-        a.removeAttribute("aria-current");
-      }
-    });
-    document.getElementById("main").scrollTo({ top: 0 });
-    window.scrollTo({ top: 0, behavior: "auto" });
-    closeMobileNav();
-    maybeAnimateStats(id);
-  }
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
 
-  function routeFromHash() {
-    var id = (location.hash || "#home").replace("#", "");
-    showPage(id);
-  }
+  <div class="nav-links" id="navLinks">
+    <a href="#home" data-fr="Accueil" data-en="Home">Accueil</a>
+    <a href="#about" data-fr="Profil" data-en="Profile">Profil</a>
+    <a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a>
+    <a href="#education" data-fr="Formation" data-en="Education">Formation</a>
+    <a href="#projects" data-fr="Projets" data-en="Projects">Projets</a>
+    <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+    <div class="nav-lang" role="radiogroup" aria-label="Langue / Language">
+      <label><input type="radio" name="lang" value="fr" checked><span>FR</span></label>
+      <label><input type="radio" name="lang" value="en"><span>EN</span></label>
+    </div>
+  </div>
+</nav>
 
-  window.addEventListener("hashchange", routeFromHash);
-  document.addEventListener("DOMContentLoaded", routeFromHash);
+<main id="main">
 
-  /* ---------------- Mobile nav ---------------- */
-  function closeMobileNav() {
-    navLinksEl.classList.remove("open");
-    navToggle.setAttribute("aria-expanded", "false");
-  }
-  navToggle.addEventListener("click", function () {
-    var open = navLinksEl.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
+  <!-- ============ HOME ============ -->
+  <section id="home" class="page">
+    <header class="hero">
+      <div class="hero-grid">
+        <div class="avatar-frame">
+          <img src="assets/moi.jpeg" alt="Photo de Imara Kabiona Abel" id="avatarImg"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-fallback',textContent:'IK'}))">
+        </div>
+        <div class="hero-text">
+          <p class="eyebrow" data-fr="Goma, Nord-Kivu — RDC" data-en="Goma, North Kivu — DRC">Goma, Nord-Kivu — RDC</p>
+          <h1>IMARA KABIONA Abel</h1>
+          <p class="role">
+            <b data-fr="Superviseur Logistique" data-en="Logistics Supervisor">Superviseur Logistique</b>
+            &nbsp;•&nbsp;<span data-fr="Graphiste Designer" data-en="Graphic Designer">Graphiste Designer</span>
+            &nbsp;•&nbsp;<span data-fr="Développeur Web & Mobile" data-en="Web & Mobile Developer">Développeur Web & Mobile</span>
+          </p>
+          <p class="pitch" data-fr="Logisticien humanitaire formé à UNIFIELD, LOGISTIC 7 et SAGA STOCK. Je combine rigueur opérationnelle sur le terrain et sens du design pour des supports clairs et professionnels." data-en="Humanitarian logistician trained on UNIFIELD, LOGISTIC 7 and SAGA STOCK. I combine field operational rigor with a designer's eye for clear, professional deliverables.">Logisticien humanitaire formé à UNIFIELD, LOGISTIC 7 et SAGA STOCK. Je combine rigueur opérationnelle sur le terrain et sens du design pour des supports clairs et professionnels.</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="assets/cv_IMARA_KABIONA_Abel.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+              <span data-fr="Télécharger le CV" data-en="Download CV">Télécharger le CV</span>
+            </a>
+            <a class="btn ghost" href="#contact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              <span data-fr="Me contacter" data-en="Contact me">Me contacter</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-  /* ---------------- Language toggle ---------------- */
-  var langInputs = document.querySelectorAll("input[name='lang']");
-  function applyLang(lang) {
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-fr]").forEach(function (el) {
-      var text = lang === "en" ? el.getAttribute("data-en") : el.getAttribute("data-fr");
-      if (text != null) el.textContent = text;
-    });
-  }
-  langInputs.forEach(function (input) {
-    input.addEventListener("change", function () {
-      if (input.checked) applyLang(input.value);
-    });
-  });
+      <div class="stats">
+        <div class="stat">
+          <div class="num"><span data-count="6">0</span><sup>+</sup></div>
+          <div class="label" data-fr="Années d'expérience" data-en="Years of experience">Années d'expérience</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span data-count="4">0</span></div>
+          <div class="label" data-fr="Organisations humanitaires" data-en="Humanitarian organizations">Organisations humanitaires</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span data-count="981">0</span><sup>K€</sup></div>
+          <div class="label" data-fr="Valeur d'entrepôt gérée" data-en="Warehouse value managed">Valeur d'entrepôt gérée</div>
+        </div>
+        <div class="stat">
+          <div class="num"><span data-count="4">0</span></div>
+          <div class="label" data-fr="Certifications professionnelles" data-en="Professional certifications">Certifications professionnelles</div>
+        </div>
+      </div>
+    </header>
 
-  /* ---------------- Animated stat counters ---------------- */
-  var statsAnimated = false;
-  function maybeAnimateStats(pageId) {
-    if (pageId !== "home" || statsAnimated) return;
-    statsAnimated = true;
-    var counters = document.querySelectorAll("[data-count]");
-    counters.forEach(function (el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      var duration = 1400;
-      var start = null;
-      function step(ts) {
-        if (start === null) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var value = Math.round(target * eased);
-        el.textContent = value;
-        if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = target;
-      }
-      requestAnimationFrame(step);
-    });
-  }
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Explorer" data-en="Explore">Explorer</p>
+        <h2 data-fr="Un aperçu, quatre directions" data-en="One overview, four directions">Un aperçu, quatre directions</h2>
+      </div>
+      <div class="quicklinks">
+        <a class="qlink" href="#experience">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+          <h3 data-fr="Expérience terrain" data-en="Field experience">Expérience terrain</h3>
+          <p class="muted" data-fr="MSF Espagne, MSF Belgique, Première Urgence — 5 postes depuis 2019." data-en="MSF Spain, MSF Belgium, Première Urgence — 5 roles since 2019.">MSF Espagne, MSF Belgique, Première Urgence — 5 postes depuis 2019.</p>
+          <span class="go" data-fr="Voir le parcours →" data-en="See the timeline →">Voir le parcours →</span>
+        </a>
+        <a class="qlink" href="#education">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <h3 data-fr="Formation & certifications" data-en="Education & certifications">Formation & certifications</h3>
+          <p class="muted" data-fr="Licence ISIG Goma, graduat ISMGL, et plusieurs certifications spécialisées." data-en="ISIG Goma bachelor's, ISMGL diploma, and several specialised certifications.">Licence ISIG Goma, graduat ISMGL, et plusieurs certifications spécialisées.</p>
+          <span class="go" data-fr="Voir les diplômes →" data-en="See the diplomas →">Voir les diplômes →</span>
+        </a>
+        <a class="qlink" href="#projects">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3 data-fr="Design graphique" data-en="Graphic design">Design graphique</h3>
+          <p class="muted" data-fr="Affiches, étiquettes et identité visuelle pour INASOFT et ETS LKB." data-en="Posters, labels and visual identity for INASOFT and ETS LKB.">Affiches, étiquettes et identité visuelle pour INASOFT et ETS LKB.</p>
+          <span class="go" data-fr="Voir les projets →" data-en="See the projects →">Voir les projets →</span>
+        </a>
+        <a class="qlink" href="#contact">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <h3 data-fr="Réseaux & contact" data-en="Networks & contact">Réseaux & contact</h3>
+          <p class="muted" data-fr="LinkedIn, GitHub, WordPress et réseaux sociaux — tout en un endroit." data-en="LinkedIn, GitHub, WordPress and social networks — all in one place.">LinkedIn, GitHub, WordPress et réseaux sociaux — tout en un endroit.</p>
+          <span class="go" data-fr="Me contacter →" data-en="Get in touch →">Me contacter →</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) {
-    maybeAnimateStats = function (pageId) {
-      if (pageId !== "home") return;
-      document.querySelectorAll("[data-count]").forEach(function (el) {
-        el.textContent = el.getAttribute("data-count");
-      });
-    };
-  }
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="page">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Profil" data-en="Profile">Profil</p>
+        <h2 data-fr="Rigueur opérationnelle, sens du design" data-en="Operational rigor, a designer's eye">Rigueur opérationnelle, sens du design</h2>
+        <p class="muted" data-fr="Logisticien polyvalent avec plus de 6 ans d'expérience en logistique, approvisionnement et gestion des données. Formé aux logiciels UNIFIELD, LOGISTIC 7 et SAGA STOCK." data-en="Versatile logistics professional with over 6 years' experience in logistics, procurement and data management. Trained on UNIFIELD, LOGISTIC 7 and SAGA STOCK.">Logisticien polyvalent avec plus de 6 ans d'expérience en logistique, approvisionnement et gestion des données. Formé aux logiciels UNIFIELD, LOGISTIC 7 et SAGA STOCK.</p>
+      </div>
 
-  /* Init on first load (in case DOMContentLoaded already fired) */
-  if (document.readyState !== "loading") {
-    routeFromHash();
-  }
-})();
+      <div class="two-col">
+        <div class="card">
+          <h3 data-fr="Compétences clés" data-en="Key skills">Compétences clés</h3>
+          <ul class="skill-list">
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M8 7V5h8v2"/></svg></span><span data-fr="Gestion des stocks et entrepôt" data-en="Inventory & warehouse management">Gestion des stocks et entrepôt</span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h13l-3-3m3 3-3 3"/><circle cx="19" cy="12" r="2"/></svg></span><span data-fr="Approvisionnement & achats locaux" data-en="Procurement & local purchasing">Approvisionnement & achats locaux</span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h13l3-6-4-1-2 4H3Z"/><circle cx="7" cy="19" r="1.6"/><circle cx="16" cy="19" r="1.6"/></svg></span><span data-fr="Gestion de flotte et maintenance" data-en="Fleet management & maintenance">Gestion de flotte et maintenance</span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span><span data-fr="Design graphique & impression" data-en="Graphic design & print">Design graphique & impression</span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14 5-3m-5 3-5-3M20 5v14m0-14-5 3m5-3 5 3"/></svg></span><span data-fr="Reporting & gestion des données" data-en="Reporting & data management">Reporting & gestion des données</span></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span><span data-fr="Français, Anglais, Swahili" data-en="French, English, Swahili">Français, Anglais, Swahili</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 data-fr="Outils & logiciels" data-en="Tools & Software">Outils & logiciels</h3>
+          <ul class="tool-list">
+            <li><span class="dot">UF</span> UNIFIELD</li>
+            <li><span class="dot">L7</span> LOGISTIC 7</li>
+            <li><span class="dot">SS</span> SAGA STOCK</li>
+            <li><span class="dot">M</span> Microsoft 365</li>
+            <li><span class="dot">X</span> <span data-fr="Excel avancé" data-en="Advanced Excel">Excel avancé</span></li>
+            <li><span class="dot">Ps</span> Photoshop / Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="page">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Feuille de route" data-en="Route sheet">Feuille de route</p>
+        <h2 data-fr="Expériences professionnelles" data-en="Professional experience">Expériences professionnelles</h2>
+        <p class="muted" data-fr="Un parcours construit étape par étape, du gardiennage à la supervision logistique." data-en="A path built step by step, from site guarding to logistics supervision.">Un parcours construit étape par étape, du gardiennage à la supervision logistique.</p>
+      </div>
+
+      <div class="route">
+        <article class="stop current" data-current-en="true">
+          <span class="period">2025 — <span data-fr="Présent" data-en="Present">Présent</span></span>
+          <h3 data-fr="Superviseur Logistique" data-en="Logistics Supervisor">Superviseur Logistique</h3>
+          <span class="org">Médecins Sans Frontières Espagne — RDC</span>
+          <p data-fr="Suivi des activités de maintenance, gestion des stocks non médicaux, supervision d'équipe, maintenance de flotte et achats locaux selon procédures MSF." data-en="Oversight of maintenance activities, non-medical stock management, team supervision, fleet maintenance and local procurement per MSF procedures.">Suivi des activités de maintenance, gestion des stocks non médicaux, supervision d'équipe, maintenance de flotte et achats locaux selon procédures MSF.</p>
+        </article>
+
+        <article class="stop">
+          <span class="period">Fév 2025 — Août 2025</span>
+          <h3 data-fr="Assistant Logistique" data-en="Logistics Assistant">Assistant Logistique</h3>
+          <span class="org">Première Urgence — Kitchanga</span>
+          <p data-fr="Suivi des achats locaux, gestion des équipements, approvisionnement et reporting." data-en="Follow-up of local purchases, equipment management, procurement and reporting.">Suivi des achats locaux, gestion des équipements, approvisionnement et reporting.</p>
+        </article>
+
+        <article class="stop">
+          <span class="period">2024</span>
+          <h3 data-fr="Assistant magasinier" data-en="Warehouse Assistant">Assistant magasinier</h3>
+          <span class="org">MSF Belgique — Goma</span>
+          <p data-fr="Réception, préparation, étiquetage des expéditions et suivi de la chaîne du froid." data-en="Receiving, preparation, labeling of shipments and cold chain monitoring.">Réception, préparation, étiquetage des expéditions et suivi de la chaîne du froid.</p>
+        </article>
+
+        <article class="stop">
+          <span class="period">2024</span>
+          <h3 data-fr="Stagiaire entrepôt" data-en="Warehouse trainee">Stagiaire entrepôt</h3>
+          <span class="org">MSF Belgique</span>
+          <p data-fr="Gestion d'un entrepôt de grande valeur (981 080 EUR), réception & expédition, prévision des commandes." data-en="Managed a warehouse valued at €981,080, receiving & dispatching, forecasting orders.">Gestion d'un entrepôt de grande valeur (981 080 EUR), réception & expédition, prévision des commandes.</p>
+        </article>
+
+        <article class="stop">
+          <span class="period">2019 — 2022</span>
+          <h3 data-fr="Jardinier & Gardien" data-en="Gardener & Guard">Jardinier & Gardien</h3>
+          <span class="org">MSF Suisse / MSF Belgique</span>
+          <p data-fr="Différents rôles au sein de MSF, démontrant polyvalence et engagement." data-en="Various roles within MSF, demonstrating versatility and commitment.">Différents rôles au sein de MSF, démontrant polyvalence et engagement.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="page">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Bagage académique" data-en="Academic background">Bagage académique</p>
+        <h2 data-fr="Formation & Certifications" data-en="Education & Certifications">Formation & Certifications</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 data-fr="Programme académique" data-en="Academic programme">Programme académique</h3>
+          <div class="diploma">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div>
+              <h4 data-fr="Le management responsable" data-en="Responsible Management">Le management responsable</h4>
+              <p class="muted" style="margin:0" data-fr="Université Laval — Québec, Canada" data-en="Université Laval — Québec, Canada">Université Laval — Québec, Canada</p>
+            </div>
+          </div>
+          <div class="diploma">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div>
+              <h4 data-fr="Programme de Leadership en situation de Crise" data-en="Crisis Leadership Programme">Programme de Leadership en situation de Crise</h4>
+              <p class="muted" style="margin:0" data-fr="Centre for Humanitarian Leadership / Deakin University — financé par UK Aid, de la part du peuple britannique" data-en="Centre for Humanitarian Leadership / Deakin University — funded by UK Aid, from the British people">Centre for Humanitarian Leadership / Deakin University — financé par UK Aid, de la part du peuple britannique</p>
+            </div>
+          </div>
+          <div class="diploma">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div>
+              <h4 data-fr="Licence en gestion de projets de développement" data-en="Bachelor in Development Project Management">Licence en gestion de projets de développement</h4>
+              <p class="muted" style="margin:0">ISIG Goma — RD Congo</p>
+            </div>
+          </div>
+          <div class="diploma">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div>
+              <h4 data-fr="Diplôme de graduat en gestion des ressources humaines" data-en="Diploma in HR Management">Diplôme de graduat en gestion des ressources humaines</h4>
+              <p class="muted" style="margin:0">ISMGL Goma — RD Congo</p>
+            </div>
+          </div>
+          <div class="diploma">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+            <div>
+              <h4 data-fr="Diplôme d'État congolais" data-en="Congolese State Diploma">Diplôme d'État congolais</h4>
+              <p class="muted" style="margin:0" data-fr="Institut Bweremana — Nord-Kivu, RD Congo" data-en="Institut Bweremana — North Kivu, DR Congo">Institut Bweremana — Nord-Kivu, RD Congo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-fr="Certifications" data-en="Certifications">Certifications</h3>
+          <div class="cert-grid">
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></span>
+              <div><h4 data-fr="Formation INSO sur la gestion de la sécurité pour les ONG" data-en="INSO training on NGO security management">Formation INSO sur la gestion de la sécurité pour les ONG</h4><span class="when">INSO — Juin 2025</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/></svg></span>
+              <div><h4 data-fr="Les bases de gestion de la sécurité" data-en="Fundamentals of security management">Les bases de gestion de la sécurité</h4><span class="when" data-fr="Médecins Sans Frontières — Septembre 2023" data-en="Médecins Sans Frontières — September 2023">Médecins Sans Frontières — Septembre 2023</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h13l-3-3m3 3-3 3"/><circle cx="19" cy="12" r="2"/></svg></span>
+              <div><h4 data-fr="Gestion des opérations d'approvisionnement" data-en="Supply Operations Management">Gestion des opérations d'approvisionnement</h4><span class="when" data-fr="Handicap International — Décembre 2024" data-en="Handicap International — December 2024">Handicap International — Décembre 2024</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+              <div><h4 data-fr="Formation en gestion des stocks" data-en="Stock management training">Formation en gestion des stocks</h4><span class="when" data-fr="MSF Belgique, Kinshasa — Juin 2024" data-en="MSF Belgium, Kinshasa — June 2024">MSF Belgique, Kinshasa — Juin 2024</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+              <div><h4 data-fr="Gestion des ressources humaines" data-en="Human Resources Management">Gestion des ressources humaines</h4><span class="when" data-fr="INPP — 01/10/2021 au 31/12/2021" data-en="INPP — 10/01/2021 to 12/31/2021">INPP — 01/10/2021 au 31/12/2021</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h13l-3-3m3 3-3 3"/><circle cx="19" cy="12" r="2"/></svg></span>
+              <div><h4 data-fr="Onboarding de la chaîne d'approvisionnement" data-en="Supply chain onboarding">Onboarding de la chaîne d'approvisionnement</h4><span class="when" data-fr="MSF — Septembre 2024" data-en="MSF — September 2024">MSF — Septembre 2024</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+              <div><h4 data-fr="Gestion des projets" data-en="Project management">Gestion des projets</h4><span class="when" data-fr="08 au 18 mars 2021" data-en="March 8–18, 2021">08 au 18 mars 2021</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14 5-3m-5 3-5-3M20 5v14m0-14-5 3m5-3 5 3"/></svg></span>
+              <div><h4 data-fr="Excel avancé" data-en="Advanced Excel">Excel avancé</h4><span class="when" data-fr="INPP — Juin à octobre 2021" data-en="INPP — June to October 2021">INPP — Juin à octobre 2021</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17h13l3-6-4-1-2 4H3Z"/><circle cx="7" cy="19" r="1.6"/><circle cx="16" cy="19" r="1.6"/></svg></span>
+              <div><h4 data-fr="Logistique" data-en="Logistics">Logistique</h4><span class="when" data-fr="INPP — Mai à septembre 2022" data-en="INPP — May to September 2022">INPP — Mai à septembre 2022</span></div>
+            </div>
+            <div class="cert">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 11h18M8 7V5h8v2"/></svg></span>
+              <div><h4 data-fr="Gérer la Performance des Personnels" data-en="Managing Staff Performance">Gérer la Performance des Personnels</h4><span class="when" data-fr="Médecins Sans Frontières — Mars 2026" data-en="Médecins Sans Frontières — March 2026">Médecins Sans Frontières — Mars 2026</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="page">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Design" data-en="Design">Design</p>
+        <h2 data-fr="Projets & Design" data-en="Projects & Design">Projets & Design</h2>
+      </div>
+      <div class="card project-card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <div>
+          <h3 style="margin-bottom:.3em" data-fr="Identité visuelle & étiquetage — INASOFT" data-en="Visual identity & labeling — INASOFT">Identité visuelle & étiquetage — INASOFT</h3>
+          <p class="muted" data-fr="Conception d'affiches et d'étiquettes pour une gamme de produits d'hygiène (shampoing, nettoyants, gel douche). Portfolio complet disponible sur demande." data-en="Design of posters and labels for a hygiene product range (shampoo, cleaners, shower gel). Full portfolio available on request.">Conception d'affiches et d'étiquettes pour une gamme de produits d'hygiène (shampoing, nettoyants, gel douche). Portfolio complet disponible sur demande.</p>
+          <div class="tag-row">
+            <span class="tag">Print</span><span class="tag">Packaging</span><span class="tag">Branding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project-card" style="margin-top:1.25rem">
+        <img src="assets/moi.jpeg" alt="Photo de Imara Kabiona Abel" style="width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0">
+        <div>
+          <h3 style="margin-bottom:.3em" data-fr="Besoin d'un site comme celui-ci ?" data-en="Need a site like this one?">Besoin d'un site comme celui-ci ?</h3>
+          <p class="muted" data-fr="N'hésitez pas à me contacter. J'ai déjà conçu et déployé plusieurs sites : une boutique en ligne (lkb.dpdns.org), ce portfolio (portfolio.lkb.dpdns.org), ainsi que le site de l'ISMGL. Je suis également chargé du design et des médias chez Goma Hub / Goma Stake Pool (gomapool.com)." data-en="Feel free to reach out. I've already designed and deployed several sites: an online shop (lkb.dpdns.org), this portfolio (portfolio.lkb.dpdns.org), and the ISMGL website. I also handle design and media for Goma Hub / Goma Stake Pool (gomapool.com).">N'hésitez pas à me contacter. J'ai déjà conçu et déployé plusieurs sites : une boutique en ligne (lkb.dpdns.org), ce portfolio (portfolio.lkb.dpdns.org), ainsi que le site de l'ISMGL. Je suis également chargé du design et des médias chez Goma Hub / Goma Stake Pool (gomapool.com).</p>
+          <div class="tag-row">
+            <a class="tag" href="https://lkb.dpdns.org" target="_blank" rel="noopener">lkb.dpdns.org</a>
+            <a class="tag" href="https://portfolio.lkb.dpdns.org" target="_blank" rel="noopener">portfolio.lkb.dpdns.org</a>
+            <a class="tag" href="https://imara-kabiona-abel.github.io/ISMGL/" target="_blank" rel="noopener">ISMGL</a>
+            <a class="tag" href="https://gomapool.com" target="_blank" rel="noopener">gomapool.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="page">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow" data-fr="Restons en contact" data-en="Let's connect">Restons en contact</p>
+        <h2 data-fr="Contact & réseaux" data-en="Contact & networks">Contact & réseaux</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3 data-fr="Coordonnées" data-en="Contact details">Coordonnées</h3>
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.4 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.4a2 2 0 0 1 2.1-.4c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <span>
+              <a href="tel:+243975140465">+243 975 140 465</a> ·
+              <a href="tel:+243840485208">+243 840 485 208</a> ·
+              <a href="tel:+243823620007">+243 823 620 007</a>
+            </span>
+          </div>
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <a href="mailto:imaraabel2@gmail.com">imaraabel2@gmail.com</a>
+          </div>
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span>
+            <span data-fr="Basé à : Nord-Kivu, RDC" data-en="Based in: North Kivu, DRC">Basé à : Nord-Kivu, RDC</span>
+          </div>
+          <div class="contact-line">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M7 15h4"/></svg></span>
+            <span data-fr="N° Carte d'électeur : 33348088233 · Passeport : P COD P00270242" data-en="Voter card No.: 33348088233 · Passport: P COD P00270242">N° Carte d'électeur : 33348088233 · Passeport : P COD P00270242</span>
+          </div>
+
+          <h3 style="margin-top:1.8rem" data-fr="Références professionnelles" data-en="Professional references">Références professionnelles</h3>
+          <div class="ref-list">
+            <div class="ref">
+              <strong>Raphael Bukondo</strong>
+              <div class="role" data-fr="Responsable projet Multi Sectoriel, Première Urgence" data-en="Multi-Sector Project Manager, Première Urgence">Responsable projet Multi Sectoriel, Première Urgence</div>
+              <a href="mailto:kts.rp.multi@premiere-urgence-cod.org">kts.rp.multi@premiere-urgence-cod.org</a>
+            </div>
+            <div class="ref">
+              <strong>Théodore Lukumuena</strong>
+              <div class="role" data-fr="Responsable chaîne d'approvisionnement, MSF-Belgique" data-en="Supply Chain Manager, MSF-Belgium">Responsable chaîne d'approvisionnement, MSF-Belgique</div>
+              <a href="mailto:Msfocb-rdc-puc-supply2@brussels.msf.org">Msfocb-rdc-puc-supply2@brussels.msf.org</a>
+            </div>
+            <div class="ref">
+              <strong>BAFO DM</strong>
+              <div class="role" data-fr="RH & Finance Manager, Projet IDPS Goma, MSF-Belgique" data-en="HR & Finance Manager, IDPS Goma Project, MSF-Belgium">RH & Finance Manager, Projet IDPS Goma, MSF-Belgique</div>
+              <a href="mailto:dmbafo@gmail.com">dmbafo@gmail.com</a>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:1rem;font-size:.85rem" data-fr="Remarque : les contacts sont fournis pour vérification." data-en="Note: reference contacts are provided for verification.">Remarque : les contacts sont fournis pour vérification.</p>
+        </div>
+
+        <div class="card">
+          <h3 data-fr="Me suivre en ligne" data-en="Follow me online">Me suivre en ligne</h3>
+          <p class="muted" data-fr="Cliquez pour me contacter ou suivre mes projets." data-en="Click to reach out or follow my work.">Cliquez pour me contacter ou suivre mes projets.</p>
+          <div class="social-grid">
+            <a class="social-btn" href="https://www.linkedin.com/in/imara-kabiona-abel" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.6 4.78 6V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.8V21H9z"/></svg></span>
+              LinkedIn
+            </a>
+            <a class="social-btn" href="https://github.com/Imara-kabiona-abel/imara-kabiona-abel" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.4.2 2.42.1 2.67.64.7 1.03 1.6 1.03 2.68 0 3.83-2.34 4.68-4.57 4.92.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.48A10 10 0 0 0 12 2Z"/></svg></span>
+              GitHub
+            </a>
+            <a class="social-btn" href="https://www.facebook.com/abel.kab.5" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.2h2.4l.4-2.8h-2.8V9.1c0-.8.2-1.4 1.4-1.4h1.5V5.2C15.9 5.1 15 5 14 5c-2.2 0-3.6 1.3-3.6 3.7v2.3H8v2.8h2.4V21z"/></svg></span>
+              Facebook
+            </a>
+            <a class="social-btn" href="https://instagram.com/imara_kabiona_abel?igshid=ZDdkNTZiNTM=" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></span>
+              Instagram
+            </a>
+            <a class="social-btn" href="https://twitter.com/imaraabel1?t=1zpF5lqLJD_cFEqYKY8kkg&s=09" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 5.9c-.7.3-1.5.6-2.3.7a4 4 0 0 0 1.7-2.2c-.8.5-1.7.8-2.6 1a4 4 0 0 0-6.9 3.6A11.3 11.3 0 0 1 3 4.9a4 4 0 0 0 1.2 5.3c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.6.2-1.2.2-1.7.1a4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 18.6a11.3 11.3 0 0 0 6.1 1.8c7.3 0 11.3-6.1 11.3-11.3v-.5c.8-.6 1.4-1.3 1.9-2.1-.7.3-1.5.5-2.3.6Z"/></svg></span>
+              Twitter / X
+            </a>
+            <a class="social-btn" href="https://lkb306021747.wordpress.com/" target="_blank" rel="noopener">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg></span>
+              WordPress
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© 2025 IMARA KABIONA Abel — <span data-fr="Portfolio professionnel" data-en="Professional portfolio">Portfolio professionnel</span> · <span data-fr="Conçu & développé par Abel" data-en="Designed & built by Abel">Conçu & développé par Abel</span></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
