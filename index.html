@@ -23,6 +23,23 @@
     .missions-list li{flex-direction:column;gap:.2rem;}
     .missions-list .myear{width:auto;}
   }
+
+  /* ===== Animation du nom (hero) ===== */
+  .ika-w{display:inline-block;white-space:nowrap}
+  .ika-ch{display:inline-block;opacity:0;transform:translateY(.7em) rotate(6deg);filter:blur(8px);
+    transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1),filter .7s,color .2s;transition-delay:calc(var(--i)*45ms)}
+  .ika-on .ika-ch{opacity:1;transform:none;filter:none}
+  .ika-on .ika-ch:hover{transform:translateY(-.12em);color:var(--amber-500);transition-delay:0s}
+  .ika-accent{position:relative;display:inline-block;color:var(--amber-500);font-style:italic;font-weight:600}
+  .ika-accent .ika-ch:hover{color:#fff}
+  .ika-accent::after{content:"";position:absolute;left:0;bottom:-.04em;height:.07em;width:100%;border-radius:9px;
+    background:linear-gradient(90deg,var(--amber-500),#5F95FB);transform:scaleX(0);transform-origin:left;transition:transform 1s .9s cubic-bezier(.2,.8,.2,1)}
+  .ika-on .ika-accent::after{transform:scaleX(1)}
+  .ika-typed{display:inline-block;min-height:1.5em;color:#fff;font-weight:700}
+  .ika-caret{display:inline-block;width:2px;height:1.1em;background:var(--amber-500);margin-left:3px;vertical-align:-.18em;animation:ikab 1s steps(1) infinite}
+  @keyframes ikab{50%{opacity:0}}
+  .ika-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  @media (prefers-reduced-motion:reduce){.ika-ch{transition:none;opacity:1;transform:none;filter:none}.ika-accent::after{transition:none;transform:scaleX(1)}.ika-caret{animation:none}}
 </style>
 </head>
 <body>
@@ -63,12 +80,8 @@
         </div>
         <div class="hero-text">
           <p class="eyebrow" data-fr="Goma, Nord-Kivu — RDC" data-en="Goma, North Kivu — DRC">Goma, Nord-Kivu — RDC</p>
-          <h1>IMARA KABIONA Abel</h1>
-          <p class="role">
-            <b data-fr="Superviseur Logistique" data-en="Logistics Supervisor">Superviseur Logistique</b>
-            &nbsp;•&nbsp;<span data-fr="Graphiste Designer" data-en="Graphic Designer">Graphiste Designer</span>
-            &nbsp;•&nbsp;<span data-fr="Développeur Web & Mobile" data-en="Web & Mobile Developer">Développeur Web & Mobile</span>
-          </p>
+          <h1 id="ika" aria-label="IMARA KABIONA Abel"><span data-split aria-hidden="true">IMARA KABIONA</span> <span class="ika-accent" data-split aria-hidden="true">Abel</span></h1>
+          <p class="role"><span class="ika-sr" data-fr="Superviseur Logistique • Graphiste Designer • Développeur Web & Mobile" data-en="Logistics Supervisor • Graphic Designer • Web & Mobile Developer">Superviseur Logistique • Graphiste Designer • Développeur Web & Mobile</span><span class="ika-typed" id="ikaRole" aria-hidden="true"></span><i class="ika-caret" aria-hidden="true"></i></p>
           <p class="pitch" data-fr="Logisticien humanitaire formé à UNIFIELD, LOGISTIC 7 et SAGA STOCK. Je combine rigueur opérationnelle sur le terrain et sens du design pour des supports clairs et professionnels." data-en="Humanitarian logistician trained on UNIFIELD, LOGISTIC 7 and SAGA STOCK. I combine field operational rigor with a designer's eye for clear, professional deliverables.">Logisticien humanitaire formé à UNIFIELD, LOGISTIC 7 et SAGA STOCK. Je combine rigueur opérationnelle sur le terrain et sens du design pour des supports clairs et professionnels.</p>
           <div class="hero-cta">
             <a class="btn primary" href="assets/cv_IMARA_KABIONA_Abel.pdf" download>
@@ -536,6 +549,39 @@
   <p>© 2025 IMARA KABIONA Abel — <span data-fr="Portfolio professionnel" data-en="Professional portfolio">Portfolio professionnel</span> · <span data-fr="Conçu & développé par Abel" data-en="Designed & built by Abel">Conçu & développé par Abel</span></p>
 </footer>
 
+<script>
+/* Animation du nom + métiers en rotation (FR/EN selon le sélecteur de langue) */
+(function(){
+  var root=document.getElementById('ika'),el=document.getElementById('ikaRole');
+  if(!root||!el)return;
+  var ROLES={fr:['Superviseur Logistique','Graphiste Designer','Développeur Web & Mobile'],
+             en:['Logistics Supervisor','Graphic Designer','Web & Mobile Developer']};
+  function lang(){var r=document.querySelector("input[name='lang']:checked");return r&&r.value==='en'?'en':'fr'}
+  var n=0;
+  root.querySelectorAll('[data-split]').forEach(function(line){
+    var words=line.textContent.split(' ');line.textContent='';
+    words.forEach(function(w,wi){
+      var ws=document.createElement('span');ws.className='ika-w';
+      w.split('').forEach(function(c){var s=document.createElement('span');s.className='ika-ch';s.textContent=c;s.style.setProperty('--i',n++);ws.appendChild(s)});
+      line.appendChild(ws);
+      if(wi<words.length-1)line.appendChild(document.createTextNode(' '));
+    });
+  });
+  requestAnimationFrame(function(){requestAnimationFrame(function(){root.classList.add('ika-on')})});
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches){
+    var show=function(){el.textContent=ROLES[lang()].join(' • ')};show();
+    document.querySelectorAll("input[name='lang']").forEach(function(i){i.addEventListener('change',show)});
+    return;
+  }
+  var r=0,c=0,del=false;
+  (function tick(){
+    var w=ROLES[lang()][r];c+=del?-1:1;el.textContent=w.slice(0,c);
+    var d=del?35:70;
+    if(!del&&c>=w.length){del=true;d=1600}else if(del&&c<=0){del=false;r=(r+1)%3;d=350}
+    setTimeout(tick,d);
+  })();
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
